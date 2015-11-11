@@ -65,12 +65,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func onCloseMenuClick(button:UIButton!){
         btnMenu.tag = 0
-        //var  animationSpeed : CGFloat = 0.3
         
         if (self.delegate != nil) {
             var index = Int32(button.tag)
             if(button == self.btnCloseMenuOverlay){
-                //animationSpeed = 0.3
                 index = -1
             }
             delegate?.slideMenuItemSelectedAtIndex(index)

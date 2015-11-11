@@ -47,7 +47,7 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.leftBarButtonItem = customBarItem;
     }
-    
+
     func defaultMenuImage() -> UIImage {
         var defaultMenuImage = UIImage()
         
@@ -79,21 +79,21 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
     func onSlideMenuButtonPressed(sender : UIButton){
         if (sender.tag == 10)
         {
-            // Menu is already displayed, no need to display it twice, otherwise we hide the menu
+            // To Hide Menu If it already there
             self.slideMenuItemSelectedAtIndex(-1);
             
             sender.tag = 0;
             
-            let viewMenu : UIView = view.subviews.last!
+            let viewMenuBack : UIView = view.subviews.last!
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
-                var rectViewMenu : CGRect = viewMenu.frame
-                rectViewMenu.origin.x = -1 * UIScreen.mainScreen().bounds.size.width
-                viewMenu.frame = rectViewMenu
-                viewMenu.layoutIfNeeded()
-                viewMenu.backgroundColor = UIColor.clearColor()
+                var frameMenu : CGRect = viewMenuBack.frame
+                frameMenu.origin.x = -1 * UIScreen.mainScreen().bounds.size.width
+                viewMenuBack.frame = frameMenu
+                viewMenuBack.layoutIfNeeded()
+                viewMenuBack.backgroundColor = UIColor.clearColor()
                 }, completion: { (finished) -> Void in
-                    viewMenu.removeFromSuperview()
+                    viewMenuBack.removeFromSuperview()
             })
             
             return
@@ -102,18 +102,18 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         sender.enabled = false
         sender.tag = 10
         
-        let objMenu : MenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-        objMenu.btnMenu = sender
-        objMenu.delegate = self
-        self.view.addSubview(objMenu.view)
-        self.addChildViewController(objMenu)
-        objMenu.view.layoutIfNeeded()
+        let menuVC : MenuViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+        menuVC.btnMenu = sender
+        menuVC.delegate = self
+        self.view.addSubview(menuVC.view)
+        self.addChildViewController(menuVC)
+        menuVC.view.layoutIfNeeded()
         
         
-        objMenu.view.frame=CGRectMake(0 - UIScreen.mainScreen().bounds.size.width, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height);
+        menuVC.view.frame=CGRectMake(0 - UIScreen.mainScreen().bounds.size.width, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height);
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            objMenu.view.frame=CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height);
+            menuVC.view.frame=CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height);
             sender.enabled = true
             }, completion:nil)
     }
