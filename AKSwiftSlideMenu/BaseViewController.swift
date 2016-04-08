@@ -27,15 +27,30 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         switch(index){
         case 0:
             print("Home\n", terminator: "")
+
+            self.openViewControllerBasedOnIdentifier("Home")
+            
             break
         case 1:
             print("Play\n", terminator: "")
-            break
-        case 2:
-            print("Camera\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("PlayVC")
+            
             break
         default:
             print("default\n", terminator: "")
+        }
+    }
+    
+    func openViewControllerBasedOnIdentifier(strIdentifier:String){
+        let destViewController : UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier(strIdentifier)
+        
+        let topViewController : UIViewController = self.navigationController!.topViewController!
+        
+        if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
+            print("Same VC")
+        } else {
+            self.navigationController!.pushViewController(destViewController, animated: true)
         }
     }
     
@@ -43,7 +58,7 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         let btnShowMenu = UIButton(type: UIButtonType.System)
         btnShowMenu.setImage(self.defaultMenuImage(), forState: UIControlState.Normal)
         btnShowMenu.frame = CGRectMake(0, 0, 30, 30)
-        btnShowMenu.addTarget(self, action: "onSlideMenuButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        btnShowMenu.addTarget(self, action: #selector(BaseViewController.onSlideMenuButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.leftBarButtonItem = customBarItem;
     }
@@ -51,28 +66,22 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
     func defaultMenuImage() -> UIImage {
         var defaultMenuImage = UIImage()
         
-        struct Static {
-            static var onceToken: dispatch_once_t = 0
-        }
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 22), false, 0.0)
         
-        dispatch_once(&Static.onceToken, { () -> Void in
-            UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 22), false, 0.0)
-            
-            UIColor.blackColor().setFill()
-            UIBezierPath(rect: CGRectMake(0, 3, 30, 1)).fill()
-            UIBezierPath(rect: CGRectMake(0, 10, 30, 1)).fill()
-            UIBezierPath(rect: CGRectMake(0, 17, 30, 1)).fill()
-            
-            UIColor.whiteColor().setFill()
-            UIBezierPath(rect: CGRectMake(0, 4, 30, 1)).fill()
-            UIBezierPath(rect: CGRectMake(0, 11,  30, 1)).fill()
-            UIBezierPath(rect: CGRectMake(0, 18, 30, 1)).fill()
-            
-            defaultMenuImage = UIGraphicsGetImageFromCurrentImageContext()
-            
-            UIGraphicsEndImageContext()
-        })
+        UIColor.blackColor().setFill()
+        UIBezierPath(rect: CGRectMake(0, 3, 30, 1)).fill()
+        UIBezierPath(rect: CGRectMake(0, 10, 30, 1)).fill()
+        UIBezierPath(rect: CGRectMake(0, 17, 30, 1)).fill()
         
+        UIColor.whiteColor().setFill()
+        UIBezierPath(rect: CGRectMake(0, 4, 30, 1)).fill()
+        UIBezierPath(rect: CGRectMake(0, 11,  30, 1)).fill()
+        UIBezierPath(rect: CGRectMake(0, 18, 30, 1)).fill()
+        
+        defaultMenuImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+       
         return defaultMenuImage;
     }
     
