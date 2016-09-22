@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SlideMenuDelegate {
-    func slideMenuItemSelectedAtIndex(index : Int32)
+    func slideMenuItemSelectedAtIndex(_ index : Int32)
 }
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -50,7 +50,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateArrayMenuOptions()
     }
@@ -62,7 +62,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tblMenuOptions.reloadData()
     }
     
-    @IBAction func onCloseMenuClick(button:UIButton!){
+    @IBAction func onCloseMenuClick(_ button:UIButton!){
         btnMenu.tag = 0
         
         if (self.delegate != nil) {
@@ -73,23 +73,23 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             delegate?.slideMenuItemSelectedAtIndex(index)
         }
         
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.view.frame = CGRectMake(-UIScreen.mainScreen().bounds.size.width, 0, UIScreen.mainScreen().bounds.size.width,UIScreen.mainScreen().bounds.size.height)
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
-            self.view.backgroundColor = UIColor.clearColor()
+            self.view.backgroundColor = UIColor.clear
             }, completion: { (finished) -> Void in
                 self.view.removeFromSuperview()
                 self.removeFromParentViewController()
         })
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cellMenu")!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellMenu")!
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.layoutMargins = UIEdgeInsets.zero
         cell.preservesSuperviewLayoutMargins = false
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.clear
         
         let lblTitle : UILabel = cell.contentView.viewWithTag(101) as! UILabel
         let imgIcon : UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
@@ -100,17 +100,17 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let btn = UIButton(type: UIButtonType.Custom)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let btn = UIButton(type: UIButtonType.custom)
         btn.tag = indexPath.row
         self.onCloseMenuClick(btn)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayMenuOptions.count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
 }
