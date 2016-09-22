@@ -1,10 +1,10 @@
 # AKSwiftSlideMenu
 
-Slide Menu (Drawer) in Swift 2
+Slide Menu (Drawer) in Swift 3
 
 Why to use a library everytime?
 
-Let's create our own Slide Menu in Swift 2.
+Let's create our own Slide Menu in Swift 3.
 
 <a href='https://pledgie.com/campaigns/31006'><img alt='Click here to lend your support to: Help by code and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/31006.png?skin_name=chrome' border='0' ></a>
 
