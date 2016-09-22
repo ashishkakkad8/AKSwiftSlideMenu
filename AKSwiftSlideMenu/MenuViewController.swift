@@ -74,9 +74,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            self.view.frame = CGRect(x: -UIScreen.main().bounds.size.width, y: 0, width: UIScreen.main().bounds.size.width,height: UIScreen.main().bounds.size.height)
+            self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
-            self.view.backgroundColor = UIColor.clear()
+            self.view.backgroundColor = UIColor.clear
             }, completion: { (finished) -> Void in
                 self.view.removeFromSuperview()
                 self.removeFromParentViewController()
@@ -87,22 +87,22 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellMenu")!
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.layoutMargins = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsets.zero
         cell.preservesSuperviewLayoutMargins = false
-        cell.backgroundColor = UIColor.clear()
+        cell.backgroundColor = UIColor.clear
         
         let lblTitle : UILabel = cell.contentView.viewWithTag(101) as! UILabel
         let imgIcon : UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
         
-        imgIcon.image = UIImage(named: arrayMenuOptions[(indexPath as NSIndexPath).row]["icon"]!)
-        lblTitle.text = arrayMenuOptions[(indexPath as NSIndexPath).row]["title"]!
+        imgIcon.image = UIImage(named: arrayMenuOptions[indexPath.row]["icon"]!)
+        lblTitle.text = arrayMenuOptions[indexPath.row]["title"]!
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let btn = UIButton(type: UIButtonType.custom)
-        btn.tag = (indexPath as NSIndexPath).row
+        btn.tag = indexPath.row
         self.onCloseMenuClick(btn)
     }
     
