@@ -14,7 +14,7 @@ Let's create our own Slide Menu in Swift 3.
 
 I have uploaded a video for easy way to integrate AKSwiftSlideMenu in your project : 
 
-[![How to integrate AKSwiftSlideMenu - iOS - Swift](https://img.youtube.com/vi/UEOf-mVeEzU/0.jpg)](https://www.youtube.com/watch?v=UEOf-mVeEzU){:target="_blank"}
+[![How to integrate AKSwiftSlideMenu - iOS - Swift](https://img.youtube.com/vi/UEOf-mVeEzU/0.jpg)](https://www.youtube.com/watch?v=UEOf-mVeEzU)
 
 I have written an article about this on my website http://ashishkakkad.com/2015/09/create-your-own-slider-menu-drawer-in-swift/
 
