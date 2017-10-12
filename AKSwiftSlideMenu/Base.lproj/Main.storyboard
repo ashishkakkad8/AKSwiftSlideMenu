@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGj-7d-jfR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGj-7d-jfR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,14 +19,11 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController restorationIdentifier="Home" storyboardIdentifier="Home" id="vXZ-lx-hvc" customClass="HomeVC" customModule="AKSwiftSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lZa-u5-V0W"/>
-                        <viewControllerLayoutGuide type="bottom" id="uE0-fS-86O"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="36s-7O-iPe"/>
                     </view>
                     <navigationItem key="navigationItem" title="AK Swift Slider Menu" id="a1u-Ki-tSz"/>
                     <connections>
@@ -40,14 +38,11 @@
         <scene sceneID="q6l-iR-WN3">
             <objects>
                 <viewController restorationIdentifier="PlayVC" storyboardIdentifier="PlayVC" id="khG-SL-0rk" customClass="PlayVC" customModule="AKSwiftSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7nB-gN-E7d"/>
-                        <viewControllerLayoutGuide type="bottom" id="ykb-8v-9YB"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Tm-V4-HTY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="57G-TB-5q4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Play" id="f24-Ia-thn"/>
                 </viewController>
@@ -61,7 +56,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DGj-7d-jfR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="mjw-Ry-qIh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.0" green="0.58367598684210531" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,10 +78,6 @@
         <scene sceneID="7la-Hc-DUD">
             <objects>
                 <viewController storyboardIdentifier="MenuViewController" id="A8P-iZ-97O" customClass="MenuViewController" customModule="AKSwiftSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nC7-H2-b1Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="qX4-o8-saf"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WQd-kp-cSW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,14 +139,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MBe-3e-d5w" firstAttribute="top" secondItem="WQd-kp-cSW" secondAttribute="top" constant="64" id="MV3-4R-tfY"/>
-                            <constraint firstAttribute="trailing" secondItem="MBe-3e-d5w" secondAttribute="trailing" constant="60" id="V0J-Dm-WaH"/>
-                            <constraint firstAttribute="trailing" secondItem="fkx-xb-tAP" secondAttribute="trailing" id="a1t-yV-e6J"/>
+                            <constraint firstItem="pCn-MJ-BbG" firstAttribute="trailing" secondItem="MBe-3e-d5w" secondAttribute="trailing" constant="60" id="V0J-Dm-WaH"/>
+                            <constraint firstItem="pCn-MJ-BbG" firstAttribute="trailing" secondItem="fkx-xb-tAP" secondAttribute="trailing" id="a1t-yV-e6J"/>
                             <constraint firstItem="fkx-xb-tAP" firstAttribute="top" secondItem="WQd-kp-cSW" secondAttribute="top" id="aAF-Jh-aPx"/>
                             <constraint firstAttribute="bottom" secondItem="MBe-3e-d5w" secondAttribute="bottom" id="bkY-L9-08x"/>
-                            <constraint firstItem="MBe-3e-d5w" firstAttribute="leading" secondItem="WQd-kp-cSW" secondAttribute="leading" id="f9O-Rf-T5Q"/>
-                            <constraint firstItem="qX4-o8-saf" firstAttribute="top" secondItem="fkx-xb-tAP" secondAttribute="bottom" id="hfB-2c-RES"/>
-                            <constraint firstItem="fkx-xb-tAP" firstAttribute="leading" secondItem="WQd-kp-cSW" secondAttribute="leading" id="ueY-G5-kmV"/>
+                            <constraint firstItem="MBe-3e-d5w" firstAttribute="leading" secondItem="pCn-MJ-BbG" secondAttribute="leading" id="f9O-Rf-T5Q"/>
+                            <constraint firstItem="pCn-MJ-BbG" firstAttribute="bottom" secondItem="fkx-xb-tAP" secondAttribute="bottom" id="hfB-2c-RES"/>
+                            <constraint firstItem="fkx-xb-tAP" firstAttribute="leading" secondItem="pCn-MJ-BbG" secondAttribute="leading" id="ueY-G5-kmV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="pCn-MJ-BbG"/>
                     </view>
                     <connections>
                         <outlet property="btnCloseMenuOverlay" destination="fkx-xb-tAP" id="OU5-WL-58c"/>
